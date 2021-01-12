@@ -29,6 +29,20 @@ const btnOpenModal = document.createElement('button');
   btnOpenModal.style.fontWeight = 'bold';
 
 
+//modal window
+const modalWindow = document.createElement('div');
+  modalWindow.style.width = '40vw';
+  modalWindow.style.height = '25vh';
+  modalWindow.style.display = 'flex';
+  modalWindow.style.alignItems = 'center';
+  modalWindow.style.justifyContent = 'center';
+  modalWindow.style.flexDirection = 'column';
+  modalWindow.style.backgroundColor = '#FB580D';
+  modalWindow.style.borderRadius = '8px';
+
+
+
 
 //insert elements in document
-document.body.append(btnOpenModal)
+document.body.append(btnOpenModal);
+btnOpenModal.after(modalWindow);
