@@ -51,6 +51,19 @@ const fieldPrice = document.createElement('input');   //price
   fieldPrice.style.textAlign = 'center';
 
 
+const btnCount = document.createElement('button');    //btn count
+  btnCount.type = 'button';
+  //btnCount.onclick = ;
+  btnCount.id = 'btnCount';
+  btnCount.innerText = 'Count'
+  btnCount.style.width = '6vw';
+  btnCount.style.height = '3vh';
+  btnCount.style.borderRadius = '15px';
+  btnCount.style.outline = 'none';
+  btnCount.style.textAlign = 'center';
+  btnCount.style.textTransform = 'uppercase';
+
+
 const hr = document.createElement('hr');    //hr line
   hr.style.width = '100%';
   hr.style.border = '1px solid #000000';
@@ -68,5 +81,6 @@ document.body.append(mainBlock);
 mainBlock.append(calcBlock);
 calcBlock.append(fieldSum);
 calcBlock.append(fieldPrice);
+calcBlock.append(btnCount);
 calcBlock.append(hr);
 calcBlock.append(fieldСhange);
