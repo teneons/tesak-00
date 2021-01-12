@@ -38,6 +38,7 @@ const fieldSum = document.createElement('input');    //sum
   fieldSum.style.outline = 'none';
   fieldSum.style.textAlign = 'center';
 
+
 const fieldPrice = document.createElement('input');   //price
   fieldPrice.type = 'number';
   fieldPrice.step = 0.1;
@@ -50,8 +51,14 @@ const fieldPrice = document.createElement('input');   //price
   fieldPrice.style.textAlign = 'center';
 
 
+const hr = document.createElement('hr');    //hr line
+  hr.style.width = '100%';
+  hr.style.border = '1px solid #000000';
+
+
 //insert elements
 document.body.append(mainBlock);
 mainBlock.append(calcBlock);
 calcBlock.append(fieldSum);
 calcBlock.append(fieldPrice);
+calcBlock.append(hr);
