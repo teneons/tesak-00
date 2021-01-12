@@ -19,11 +19,11 @@ const mainBlock = document.createElement('div');   //main block
 const calcBlock = document.createElement('div');   //calc block
   calcBlock.id = 'mainBlock';
   calcBlock.style.width = '18vw';
-  calcBlock.style.height = '25vh';
+  calcBlock.style.height = '27vh';
   calcBlock.style.border = '2px solid #000000';
   calcBlock.style.display = 'flex';
   calcBlock.style.alignItems = 'center';
-  calcBlock.style.justifyContent = 'center';
+  calcBlock.style.justifyContent = 'space-around';
   calcBlock.style.flexDirection = 'column';
 
 
