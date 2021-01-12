@@ -14,3 +14,21 @@ document.body.style.justifyContent = 'center';
 document.body.style.flexDirection = 'column';
 document.body.style.backgroundColor = '#101010';
 
+
+//create open modal button
+const btnOpenModal = document.createElement('button');
+  btnOpenModal.type = 'button';
+  btnOpenModal.id = 'btnOpenModal';
+  btnOpenModal.innerText = 'Open modal'
+  btnOpenModal.style.width = '12vw';
+  btnOpenModal.style.height = '7vh';
+  btnOpenModal.style.borderRadius = '7px';
+  btnOpenModal.style.outline = 'none';
+  btnOpenModal.style.textAlign = 'center';
+  btnOpenModal.style.textTransform = 'uppercase';
+  btnOpenModal.style.fontWeight = 'bold';
+
+
+
+//insert elements in document
+document.body.append(btnOpenModal)
