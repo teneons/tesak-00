@@ -38,8 +38,20 @@ const fieldSum = document.createElement('input');    //sum
   fieldSum.style.outline = 'none';
   fieldSum.style.textAlign = 'center';
 
+const fieldPrice = document.createElement('input');   //price
+  fieldPrice.type = 'number';
+  fieldPrice.step = 0.1;
+  fieldPrice.placeholder = 'Input price';
+  fieldPrice.id = 'fieldPrice';
+  fieldPrice.style.width = '12vw';
+  fieldPrice.style.height = '5vh';
+  fieldPrice.style.border = '0px solid';
+  fieldPrice.style.outline = 'none';
+  fieldPrice.style.textAlign = 'center';
+
 
 //insert elements
 document.body.append(mainBlock);
 mainBlock.append(calcBlock);
 calcBlock.append(fieldSum);
+calcBlock.append(fieldPrice);
