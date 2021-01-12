@@ -41,6 +41,11 @@ const modalWindow = document.createElement('div');
   modalWindow.style.borderRadius = '8px';
 
 
+//welcome message
+const welcomeMessage = document.createElement('h1');
+  welcomeMessage.innerText = 'Hi, this is task 2';
+
+
 //btn close for modal
 const btnCloseModal = document.createElement('button');
   btnCloseModal.type = 'button';
@@ -57,4 +62,5 @@ const btnCloseModal = document.createElement('button');
 //insert elements in document
 document.body.append(btnOpenModal);
 btnOpenModal.after(modalWindow);
+modalWindow.append(welcomeMessage)
 modalWindow.append(btnCloseModal);
