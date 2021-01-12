@@ -53,7 +53,6 @@ const fieldPrice = document.createElement('input');   //price
 
 const btnCount = document.createElement('button');    //btn count
   btnCount.type = 'button';
-  //btnCount.onclick = ;
   btnCount.id = 'btnCount';
   btnCount.innerText = 'Count'
   btnCount.style.width = '6vw';
@@ -72,8 +71,9 @@ const hr = document.createElement('hr');    //hr line
 const fieldСhange = document.createElement('span');
   fieldСhange.id = 'fieldСhange';
   fieldСhange.style.width = '100%';
-  fieldСhange.style.fontSize = '3vh';
+  fieldСhange.style.fontSize = '2vh';
   fieldСhange.style.textAlign = 'center';
+  fieldСhange.style.fontWeight = 'bold';
 
 
 //insert elements
@@ -84,3 +84,14 @@ calcBlock.append(fieldPrice);
 calcBlock.append(btnCount);
 calcBlock.append(hr);
 calcBlock.append(fieldСhange);
+
+
+//processing data
+btnCount.addEventListener('click', () => {
+  let change = ((fieldSum.value * 100 - fieldPrice.value * 100)/100).toFixed(2);   //difference
+  let dollar = Math.trunc(change);
+  let cent = (change * 100 - dollar * 100)/100; //exact cent values
+
+  fieldСhange.innerHTML = `Your change ${change}$ or ${dollar}$ ${cent*100}¢`;   //out
+
+})
