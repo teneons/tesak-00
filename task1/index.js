@@ -56,9 +56,17 @@ const hr = document.createElement('hr');    //hr line
   hr.style.border = '1px solid #000000';
 
 
+const fieldСhange = document.createElement('span');
+  fieldСhange.id = 'fieldСhange';
+  fieldСhange.style.width = '100%';
+  fieldСhange.style.fontSize = '3vh';
+  fieldСhange.style.textAlign = 'center';
+
+
 //insert elements
 document.body.append(mainBlock);
 mainBlock.append(calcBlock);
 calcBlock.append(fieldSum);
 calcBlock.append(fieldPrice);
 calcBlock.append(hr);
+calcBlock.append(fieldСhange);
