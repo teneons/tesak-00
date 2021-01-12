@@ -41,8 +41,20 @@ const modalWindow = document.createElement('div');
   modalWindow.style.borderRadius = '8px';
 
 
+//btn close for modal
+const btnCloseModal = document.createElement('button');
+  btnCloseModal.type = 'button';
+  btnCloseModal.id = 'btnCloseModal';
+  btnCloseModal.innerText = 'Close'
+  btnCloseModal.style.width = '6vw';
+  btnCloseModal.style.height = '4.7vh';
+  btnCloseModal.style.borderRadius = '7px';
+  btnCloseModal.style.outline = 'none';
+  btnCloseModal.style.textAlign = 'center';
+  btnCloseModal.style.fontWeight = 'bold';
 
 
 //insert elements in document
 document.body.append(btnOpenModal);
 btnOpenModal.after(modalWindow);
+modalWindow.append(btnCloseModal);
