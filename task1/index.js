@@ -27,7 +27,19 @@ const calcBlock = document.createElement('div');   //calc block
   calcBlock.style.flexDirection = 'column';
 
 
+const fieldSum = document.createElement('input');    //sum
+  fieldSum.type = 'number';
+  fieldSum.step = 0.1;
+  fieldSum.placeholder = 'Input sum'
+  fieldSum.id = 'fieldSum';
+  fieldSum.style.width = '12vw';
+  fieldSum.style.height = '5vh';
+  fieldSum.style.border = '0px solid';
+  fieldSum.style.outline = 'none';
+  fieldSum.style.textAlign = 'center';
+
 
 //insert elements
-document.body.append(mainBlock)
-mainBlock.append(calcBlock)
+document.body.append(mainBlock);
+mainBlock.append(calcBlock);
+calcBlock.append(fieldSum);
