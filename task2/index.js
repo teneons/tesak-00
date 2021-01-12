@@ -30,51 +30,57 @@ const btnOpenModal = document.createElement('button');
 
 
 //modal window
+class ModalWindow {
+  constructor() {
+    this.createModalWindowElements()
+  }
 
-const modalWindow = document.createElement('div');
-modalWindow.style.width = '40vw';
-modalWindow.style.height = '25vh';
-modalWindow.style.position = 'fixed';
-modalWindow.style.zIndex = 1;
-modalWindow.style.left = 1;
-modalWindow.style.top = 1;
-modalWindow.style.display = 'flex';
-modalWindow.style.alignItems = 'center';
-modalWindow.style.justifyContent = 'center';
-modalWindow.style.flexDirection = 'column';
-modalWindow.style.backgroundColor = '#FB580D';
-modalWindow.style.borderRadius = '8px';
+  createModalWindowElements() {
+    const modalWindow = document.createElement('div');
+      modalWindow.style.width = '40vw';
+      modalWindow.style.height = '25vh';
+      modalWindow.style.position = 'fixed';
+      modalWindow.style.zIndex = 1;
+      modalWindow.style.left = 1;
+      modalWindow.style.top = 1;
+      modalWindow.style.display = 'flex';
+      modalWindow.style.alignItems = 'center';
+      modalWindow.style.justifyContent = 'center';
+      modalWindow.style.flexDirection = 'column';
+      modalWindow.style.backgroundColor = '#FB580D';
+      modalWindow.style.borderRadius = '8px';
 
 
-//welcome message
-const welcomeMessage = document.createElement('h1');
-welcomeMessage.innerText = 'Hi, this is task 2';
+    //welcome message
+    const welcomeMessage = document.createElement('h1');
+      welcomeMessage.innerText = 'Hi, this is task 2';
 
 
-//btn close for modal
-const btnCloseModal = document.createElement('button');
-btnCloseModal.type = 'button';
-btnCloseModal.id = 'btnCloseModal';
-btnCloseModal.innerText = 'Close'
-btnCloseModal.style.width = '6vw';
-btnCloseModal.style.height = '4.7vh';
-btnCloseModal.style.borderRadius = '7px';
-btnCloseModal.style.outline = 'none';
-btnCloseModal.style.textAlign = 'center';
-btnCloseModal.style.fontWeight = 'bold';
+    //btn close for modal
+    const btnCloseModal = document.createElement('button');
+      btnCloseModal.type = 'button';
+      btnCloseModal.id = 'btnCloseModal';
+      btnCloseModal.innerText = 'Close'
+      btnCloseModal.style.width = '6vw';
+      btnCloseModal.style.height = '4.7vh';
+      btnCloseModal.style.borderRadius = '7px';
+      btnCloseModal.style.outline = 'none';
+      btnCloseModal.style.textAlign = 'center';
+      btnCloseModal.style.fontWeight = 'bold';
 
-//create/remove elements
+      //remove modal
+      btnCloseModal.addEventListener('click', () => {
+        modalWindow.remove()
+      })
+
+
+    //elements initialization
+    document.getElementById('btnOpenModal').before(modalWindow)
+    modalWindow.append(welcomeMessage)
+    modalWindow.append(btnCloseModal)
+
+  }
+}
+
 document.body.append(btnOpenModal);   //add open btn
-
-//create(open) modal
-btnOpenModal.addEventListener('click', () => {
-  btnOpenModal.before(modalWindow)
-  modalWindow.append(welcomeMessage)
-  modalWindow.append(btnCloseModal)
-})
-
-
-//remove modal
-btnCloseModal.addEventListener('click', () => {
-  modalWindow.remove()
-})
+btnOpenModal.addEventListener('click', () => new ModalWindow())   //create modal window
