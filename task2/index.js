@@ -74,7 +74,7 @@ class ModalWindow {
 
 
     //elements initialization
-    document.getElementById('btnOpenModal').before(modalWindow)
+    document.getElementById('btnOpenModal').after(modalWindow)
     modalWindow.append(welcomeMessage)
     modalWindow.append(btnCloseModal)
 
@@ -90,5 +90,5 @@ class ModalWindow {
   }
 }
 
-document.body.append(btnOpenModal);   //add open btn
+document.body.prepend(btnOpenModal);   //add open btn
 btnOpenModal.addEventListener('click', () => new ModalWindow() )   //create modal window
