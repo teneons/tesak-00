@@ -3,7 +3,31 @@ const idGenerator = () => {
   document.getElementById('newUserId').value = id;
 }
 
+document.getElementById('btnAddNewUser').addEventListener('click', () => {
+  const userId = document.getElementById('newUserId').value;
 
+  //obj for LS
+  const objUser = {
+    id: userId,
+    name: document.getElementById('newUserName').value,
+    surname: document.getElementById('newUserName').value,
+    email: document.getElementById('newUserEmail').value,
+    date: document.getElementById('newUserDate').value,
+  }
+
+
+  //adds data to localstorage
+  try {
+    localStorage.setItem(userId, JSON.stringify(objUser))
+  } catch(e) {
+    if(e == 'QUOTA_EXCEEDED_ERR') {
+        alert('ERROR - your local storage was crowded')
+  }}
+
+  idGenerator()   //update id
+
+
+})
 
 
 class UserCell {
