@@ -2,6 +2,24 @@ $black: #101010;
 $gray: #f2f2f2;
 $white: #fff;
 
+@mixin mainCell ($height) {
+  height: $height;
+  text-align: center;
+  border: none;
+  color: $black
+}
+
+@mixin mainBlock {
+  width: 75%;
+  padding: 0.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  box-shadow: 0px 2px 8px 1px rgba(255,255,255,0.25);
+}
+
+
 * {
   margin: 0;
   outline-style: none;
@@ -17,13 +35,7 @@ $white: #fff;
 }
 
 #blockCreateNewUser {
-  width: 75%;
-  height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 7px;
-  box-shadow: 0px 2px 8px 1px rgba(255,255,255,0.25);
+  @include mainBlock;
 
   &:focus-within {
     border: 1px solid $white;
@@ -31,7 +43,21 @@ $white: #fff;
 }
 
 .tdNewUser, #btnAddNewUser {
-  height: 6vh;
+  @include mainCell(6vh)
+}
+
+#blockUsers {
+  @include mainBlock;
+
+  margin-top: 5vh;
+}
+
+th {
+  color: $white;
+}
+
+.tdUser {
+  height: 4vh;
   text-align: center;
   border: none;
   color: $black
