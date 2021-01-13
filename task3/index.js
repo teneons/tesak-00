@@ -1,3 +1,7 @@
+let UserStorage = [];
+
+
+
 
 class UserCell {
   constructor() {
@@ -39,7 +43,7 @@ class UserCell {
 
     const tdDate = document.createElement('td');        //date cell
     const fieldDate = document.createElement('input');
-      fieldDate.type = 'date';
+      fieldDate.type = 'text';
       fieldDate.value = '';
       fieldDate.className = 'tdUser';
       fieldDate.disabled = true;
@@ -79,7 +83,12 @@ class UserCell {
 }
 
 window.onload = () => {
-  new UserCell()
-  new UserCell()
-  new UserCell()
-}    //temp
+  //generation and set id
+  const generId = Math.floor(Math.random() * 16777215).toString(16);
+  document.getElementById('newUserId').value = generId;
+
+  const date = new Date()
+  const dateNow = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
+  document.getElementById('newUserDate').value = dateNow;
+
+}
