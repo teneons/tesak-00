@@ -1,0 +1,35 @@
+@keyframes animOpen {
+  0% {
+    right: 3;
+    transform: perspective(500px)
+    scale(1);
+  }
+
+  50% {
+    transform: perspective(500px)
+	  scale(1.1);
+  }
+
+  100% {
+    transform: perspective(500px)
+	  scale(1);
+  }
+}
+
+@keyframes animClose {
+  0% {
+    transform: perspective(500px)
+	  scale(1.1);
+  }
+
+  50% {
+    transform: perspective(500px)
+	  scale(0.5);
+  }
+
+  100% {
+    transform: perspective(500px)
+	  scale(0);
+  }
+  
+}

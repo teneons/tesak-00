@@ -49,6 +49,7 @@ class ModalWindow {
       modalWindow.style.flexDirection = 'column';
       modalWindow.style.backgroundColor = '#FB580D';
       modalWindow.style.borderRadius = '8px';
+      modalWindow.style.animation = 'animOpen 0.5s';
 
     //welcome message
     const welcomeMessage = document.createElement('h1');
@@ -69,7 +70,8 @@ class ModalWindow {
 
       //remove modal
       btnCloseModal.addEventListener('click', () => {
-        modalWindow.remove()
+        modalWindow.style.animation = 'animClose 0.5s'
+        setTimeout(() => modalWindow.remove(), 500)
       })
 
 
@@ -80,11 +82,15 @@ class ModalWindow {
 
     //multi modal
     const modalWindow2 = modalWindow.cloneNode(false)   //clone window
-    const btnCloseModal2 = btnCloseModal.cloneNode(false)   //clone close btn
+    const btnCloseModal2 = btnCloseModal.cloneNode(true)   //clone close btn
 
     modalWindow.before(modalWindow2)
     modalWindow2.append(btnCloseModal2)
-      btnCloseModal2.addEventListener('click', () => modalWindow2.remove()) //temp test
+    
+    btnCloseModal2.addEventListener('click', () => {
+      modalWindow2.style.animation = 'animClose 0.5s'
+      setTimeout(() => modalWindow2.remove(), 500)
+    }) //temp test
 
 
   }
