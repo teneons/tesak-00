@@ -1,4 +1,7 @@
-let UserStorage = [];
+const idGenerator = () => {
+  const id = Math.floor(Math.random() * 16777215).toString(16);
+  document.getElementById('newUserId').value = id;
+}
 
 
 
@@ -84,11 +87,10 @@ class UserCell {
 
 window.onload = () => {
   //generation and set id
-  const generId = Math.floor(Math.random() * 16777215).toString(16);
-  document.getElementById('newUserId').value = generId;
+  idGenerator();
 
   const date = new Date()
-  const dateNow = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
+  const dateNow = `${date.getHours()}:${date.getMinutes()}     ${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
   document.getElementById('newUserDate').value = dateNow;
 
 }
