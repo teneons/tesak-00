@@ -50,7 +50,6 @@ class ModalWindow {
       modalWindow.style.backgroundColor = '#FB580D';
       modalWindow.style.borderRadius = '8px';
 
-
     //welcome message
     const welcomeMessage = document.createElement('h1');
       welcomeMessage.innerText = 'Hi, this is task 2';
@@ -79,8 +78,17 @@ class ModalWindow {
     modalWindow.append(welcomeMessage)
     modalWindow.append(btnCloseModal)
 
+    //multi modal
+    const modalWindow2 = modalWindow.cloneNode(false)   //clone window
+    const btnCloseModal2 = btnCloseModal.cloneNode(false)   //clone close btn
+
+    modalWindow.before(modalWindow2)
+    modalWindow2.append(btnCloseModal2)
+      btnCloseModal2.addEventListener('click', () => modalWindow2.remove()) //temp test
+
+
   }
 }
 
 document.body.append(btnOpenModal);   //add open btn
-btnOpenModal.addEventListener('click', () => new ModalWindow())   //create modal window
+btnOpenModal.addEventListener('click', () => new ModalWindow() )   //create modal window
