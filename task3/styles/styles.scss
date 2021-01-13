@@ -1,0 +1,19 @@
+$black: #101010;
+$gray: #f2f2f2;
+$white: #fff;
+
+* {
+  margin: 0;
+  outline-style: none;
+  outline: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+#blockMain {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: $black;
+}
