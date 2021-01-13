@@ -3,6 +3,12 @@ const idGenerator = () => {
   document.getElementById('newUserId').value = id;
 }
 
+const dateGenerator = () => {
+  const date = new Date()
+  const dateNow = `${date.getHours()}:${date.getMinutes()}     ${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
+  document.getElementById('newUserDate').value = dateNow;
+}
+
 document.getElementById('btnAddNewUser').addEventListener('click', () => {
   const userId = document.getElementById('newUserId').value;
   const userName = document.getElementById('newUserName');
@@ -31,10 +37,12 @@ document.getElementById('btnAddNewUser').addEventListener('click', () => {
   } else {alert('Not all fields are filled')}
   
 
-  idGenerator()   //update id
+  //update fields
+  idGenerator()
   userName.value = '';
   userSurname.value = '';
   userEmail.value = '';
+  dateGenerator()
 
 })
 
@@ -119,11 +127,7 @@ class UserCell {
 }
 
 window.onload = () => {
-  //generation and set id
   idGenerator();
-
-  const date = new Date()
-  const dateNow = `${date.getHours()}:${date.getMinutes()}     ${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
-  document.getElementById('newUserDate').value = dateNow;
+  dateGenerator();
 
 }
