@@ -5,27 +5,36 @@ const idGenerator = () => {
 
 document.getElementById('btnAddNewUser').addEventListener('click', () => {
   const userId = document.getElementById('newUserId').value;
+  const userName = document.getElementById('newUserName');
+  const userSurname = document.getElementById('newUserSurname');
+  const userEmail = document.getElementById('newUserEmail');
+  const userDate = document.getElementById('newUserDate');
 
   //obj for LS
   const objUser = {
     id: userId,
-    name: document.getElementById('newUserName').value,
-    surname: document.getElementById('newUserName').value,
-    email: document.getElementById('newUserEmail').value,
-    date: document.getElementById('newUserDate').value,
+    name: userName.value,
+    surname: userSurname.value,
+    email: userEmail.value,
+    date: userDate.value,
   }
 
 
   //adds data to localstorage
-  try {
-    localStorage.setItem(userId, JSON.stringify(objUser))
-  } catch(e) {
-    if(e == 'QUOTA_EXCEEDED_ERR') {
-        alert('ERROR - your local storage was crowded')
-  }}
+  if(userName.value != '' && userEmail.value != '') {
+    try {
+      localStorage.setItem(userId, JSON.stringify(objUser))
+    } catch(e) {
+      if(e == 'QUOTA_EXCEEDED_ERR') {
+          alert('ERROR - your local storage was crowded')
+    }}
+  } else {alert('Not all fields are filled')}
+  
 
   idGenerator()   //update id
-
+  userName.value = '';
+  userSurname.value = '';
+  userEmail.value = '';
 
 })
 
