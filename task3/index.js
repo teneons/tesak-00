@@ -48,47 +48,48 @@ document.getElementById('btnAddNewUser').addEventListener('click', () => {
 
 
 class UserCell {
-  constructor() {
-    this.createCellElements()
+  constructor(lsUserId) {
+    this.createCellElements(lsUserId)
   }
 
-  createCellElements() {
+  createCellElements(lsUserId) {
+    const user = JSON.parse(localStorage.getItem(lsUserId))
 
     const trUser = document.createElement('tr');      //tr cell
       trUser.className = 'trUser';
     
     const tdId = document.createElement('td');        //id cell
     const fieldId = document.createElement('input');
-      fieldId.type = 'number';
-      fieldId.value = '';
+      fieldId.type = 'text';
+      fieldId.value = user.id;
       fieldId.className = 'tdUser';
       fieldId.disabled = true;
 
     const tdName = document.createElement('td');        //name cell
     const fieldName = document.createElement('input');
       fieldName.type = 'text';
-      fieldName.value = '';
+      fieldName.value = user.name;
       fieldName.className = 'tdUser';
       fieldName.disabled = true;
 
     const tdSurname = document.createElement('td');       //surname cell
     const fieldSurname = document.createElement('input');
       fieldSurname.type = 'text';
-      fieldSurname.value = '';
+      fieldSurname.value = user.surname;
       fieldSurname.className = 'tdUser';
       fieldSurname.disabled = true;
 
     const tdEmail = document.createElement('td');       //email cell
     const fieldEmail = document.createElement('input');
       fieldEmail.type = 'text';
-      fieldEmail.value = '';
+      fieldEmail.value = user.email;
       fieldEmail.className = 'tdUser';
       fieldEmail.disabled = true;
 
     const tdDate = document.createElement('td');        //date cell
     const fieldDate = document.createElement('input');
       fieldDate.type = 'text';
-      fieldDate.value = '';
+      fieldDate.value = user.date;
       fieldDate.className = 'tdUser';
       fieldDate.disabled = true;
 
@@ -103,7 +104,6 @@ class UserCell {
       fieldCheckbox.type = 'checkbox';
 
 
-    
     //insert element in document
     document.getElementById('tableUsers').append(trUser);
     trUser.append(tdId);  //id
@@ -121,13 +121,15 @@ class UserCell {
     tdBtnEdit.after(tdCheckbox); //checkbox
       tdCheckbox.append(fieldCheckbox);
     
-
-
   }
 }
 
 window.onload = () => {
   idGenerator();
   dateGenerator();
+
+  for(let i of Object.keys(localStorage)) {
+    new UserCell(i)
+  }
 
 }
