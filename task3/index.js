@@ -9,6 +9,8 @@ const dateGenerator = () => {
   document.getElementById('newUserDate').value = dateNow;
 }
 
+
+//add user
 document.getElementById('btnAddNewUser').addEventListener('click', () => {
   const userId = document.getElementById('newUserId').value;
   const userName = document.getElementById('newUserName');
@@ -38,11 +40,13 @@ document.getElementById('btnAddNewUser').addEventListener('click', () => {
   
 
   //update fields
-  idGenerator()
+  idGenerator();
   userName.value = '';
   userSurname.value = '';
   userEmail.value = '';
-  dateGenerator()
+  dateGenerator();
+
+  window.location.reload();
 
 })
 
