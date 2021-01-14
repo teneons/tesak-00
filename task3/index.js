@@ -12,10 +12,15 @@ const dateGenerator = () => {
 
 //add user
 document.getElementById('btnAddNewUser').addEventListener('click', () => {
+  var access = true;
   const userId = document.getElementById('newUserId').value;
   const userName = document.getElementById('newUserName');
   const userSurname = document.getElementById('newUserSurname');
   const userEmail = document.getElementById('newUserEmail');
+    if(/\S+@\S+\.\S+/.test(userEmail.value) === false) {
+      access = false;
+      alert('Bad email');
+    }
   const userDate = document.getElementById('newUserDate');
 
   //obj for LS
@@ -27,15 +32,17 @@ document.getElementById('btnAddNewUser').addEventListener('click', () => {
     date: userDate.value,
   }
 
-
   //adds data to localstorage
   if(userName.value != '' && userEmail.value != '') {
-    try {
-      localStorage.setItem(userId, JSON.stringify(objUser))
-    } catch(e) {
-      if(e == 'QUOTA_EXCEEDED_ERR') {
-          alert('ERROR - your local storage was crowded')
-    }}
+    console.log(access)
+    if(access) {
+      try {
+        localStorage.setItem(userId, JSON.stringify(objUser))
+      } catch(e) {
+        if(e == 'QUOTA_EXCEEDED_ERR') {
+            alert('ERROR - your local storage was crowded')
+      }}
+    } else alert('Сorrect mistakes')
   } else {alert('Not all fields are filled')}
   
 
