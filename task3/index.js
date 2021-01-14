@@ -108,6 +108,8 @@ class UserCell {
     const tdCheckbox = document.createElement('td');      //checkbox
     const fieldCheckbox = document.createElement('input');
       fieldCheckbox.type = 'checkbox';
+      fieldCheckbox.className = 'chbox';
+      fieldCheckbox.name = user.id;
 
 
     //insert element in document
@@ -160,9 +162,22 @@ class UserCell {
       btnSave.remove();
       btnEdt.style.display = 'inline';  //show btn edit
     });
-
   }
+
 }
+
+//delete
+document.getElementById('btnDelete').addEventListener('click', () => {
+  const chbox = document.getElementsByClassName('chbox');
+
+  for(const i of chbox) {
+    if(i.checked === true) {
+      localStorage.removeItem(i.name)
+    }
+  }
+
+  window.location.reload();
+})
 
 window.onload = () => {
   idGenerator();
