@@ -69,28 +69,28 @@ class UserCell {
     const fieldName = document.createElement('input');
       fieldName.type = 'text';
       fieldName.value = user.name;
-      fieldName.className = 'tdUser';
+      fieldName.classList.add('tdUser', user.id);
       fieldName.disabled = true;
 
     const tdSurname = document.createElement('td');       //surname cell
     const fieldSurname = document.createElement('input');
       fieldSurname.type = 'text';
       fieldSurname.value = user.surname;
-      fieldSurname.className = 'tdUser';
+      fieldSurname.classList.add('tdUser', user.id);
       fieldSurname.disabled = true;
 
     const tdEmail = document.createElement('td');       //email cell
     const fieldEmail = document.createElement('input');
       fieldEmail.type = 'text';
       fieldEmail.value = user.email;
-      fieldEmail.className = 'tdUser';
+      fieldEmail.classList.add('tdUser', user.id);
       fieldEmail.disabled = true;
 
     const tdDate = document.createElement('td');        //date cell
     const fieldDate = document.createElement('input');
       fieldDate.type = 'text';
       fieldDate.value = user.date;
-      fieldDate.className = 'tdUser';
+      fieldDate.classList.add('tdUser', user.id);
       fieldDate.disabled = true;
 
     const tdBtnEdit = document.createElement('td');     //btn edit cell
@@ -98,6 +98,8 @@ class UserCell {
       btnEdit.type = 'button';
       btnEdit.className = 'btnEdit';
       btnEdit.innerText = 'Edit';
+      btnEdit.name = user.id;
+      btnEdit.display = 'inline';
 
     const tdCheckbox = document.createElement('td');      //checkbox
     const fieldCheckbox = document.createElement('input');
@@ -120,7 +122,41 @@ class UserCell {
       tdBtnEdit.append(btnEdit);
     tdBtnEdit.after(tdCheckbox); //checkbox
       tdCheckbox.append(fieldCheckbox);
-    
+
+
+    btnEdit.addEventListener('click', () => {
+      this.editFields(btnEdit.name, btnEdit, user.id);
+    })
+  }
+
+  //edit
+  editFields(fieldName, btnEdt, id) {
+    btnEdit.style.display = 'none'; //hide btn edit
+
+    //create btn edit
+    const btnSave = document.createElement('button');
+      btnSave.type = 'button';
+      btnSave.innerText = 'Save';
+    btnEdt.after(btnSave)
+
+    const inputs = document.getElementsByClassName(fieldName);    //gets data from all inputs
+    for(const i of inputs) i.disabled = false;    //turn off disabled
+
+    btnSave.addEventListener('click', () => {
+      //generation obj with new data
+      let newObj = {
+        id: id,
+        name: inputs[0].value,
+        surname: inputs[1].value,
+        email: inputs[2].value,
+        date: inputs[3].value,
+      }
+
+      localStorage.setItem(id, JSON.stringify(newObj));   //new data rewrite in local storage
+      btnSave.remove();
+      btnEdt.style.display = 'inline';  //show btn edit
+    });
+
   }
 }
 
