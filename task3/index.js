@@ -17,7 +17,8 @@ document.getElementById('btnAddNewUser').addEventListener('click', () => {
   const userName = document.getElementById('newUserName');
   const userSurname = document.getElementById('newUserSurname');
   const userEmail = document.getElementById('newUserEmail');
-    if(/\S+@\S+\.\S+/.test(userEmail.value) === false) {
+    const regEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    if(regEmail.test(userEmail.value) === false) {
       access = false;
       alert('Bad email');
     }
