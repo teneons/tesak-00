@@ -139,12 +139,12 @@ class UserCell {
 
     btnEdit.addEventListener('click', () => {
       this.editFields(btnEdit.name, btnEdit, user.id);
+      btnEdit.style.display = 'none'; //hide btn edit
     })
   }
 
   //edit
   editFields(fieldName, btnEdt, id) {
-    btnEdit.style.display = 'none'; //hide btn edit
 
     //create btn edit
     const btnSave = document.createElement('button');
@@ -166,6 +166,8 @@ class UserCell {
       }
 
       localStorage.setItem(id, JSON.stringify(newObj));   //new data rewrite in local storage
+
+      for(const i of inputs) i.disabled = true;    //turn off disabled
       btnSave.remove();
       btnEdt.style.display = 'inline';  //show btn edit
     });
